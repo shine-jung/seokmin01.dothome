@@ -2,13 +2,50 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+
+    <title>Order summary card</title>
+
+    <link href="style.css" rel="stylesheet" />
   </head>
+
   <body>
-    <div>
-      <h1>Hello Dothome</h1>
+    <div class="container-outer">
+      <div class="container">
+        <img
+          id="illustration"
+          src="./images/illustration-hero.svg"
+          alt="illustration"
+        />
+
+        <div class="summary-box">
+          <h2>Order Summary</h2>
+          <p>
+            You can now listen to millions of songs, audiobooks, and podcasts on
+            any device anywhere you like!
+          </p>
+        </div>
+
+        <div class="plan-box">
+          <img
+            id="music-icon"
+            src="./images/icon-music.svg"
+            alt="music-icon"
+            width="48"
+            height="48"
+          />
+          <div class="plan-text">
+            <h4 style="text-align: left">Annual Plan</h4>
+            <p>$59.99/year</p>
+          </div>
+          <div id="change-link">Change</div>
+        </div>
+
+        <div class="button-box">
+          <a id="button1">Proceed to Payment</a>
+          <a id="button2">Cancel Order</a>
+        </div>
+      </div>
     </div>
   </body>
 </html>

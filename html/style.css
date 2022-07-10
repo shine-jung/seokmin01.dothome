@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap");
+
+html {
+  height: 100vh;
+}
+
+body {
+  font-family: "Red Hat Display", sans-serif;
+  background-image: url("images/pattern-background-desktop.svg");
+  background-repeat: no-repeat;
+  background-color: hsl(225, 100%, 94%);
+  height: 100%;
+}
+
+@media (max-width: 375px) {
+  body {
+    background-image: url("/images/pattern-background-mobile.svg");
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: hsl(223, 47%, 23%);
+  font-weight: 900;
+}
+
+p {
+  font-family: sans-serif;
+  color: hsl(224, 23%, 55%);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.summary-box {
+  width: 70%;
+  margin: 35px auto 15px auto;
+}
+
+.summary-box p {
+  line-height: 150%;
+}
+
+.container-outer {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 450px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 12px 20px 0px hsla(245, 75%, 52%, 0.12);
+}
+
+#illustration {
+  width: 100%;
+  max-width: 450px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.plan-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  margin: 0px auto;
+  padding: 5px 20px;
+  background-color: hsl(225, 100%, 98%);
+  border-radius: 10px;
+}
+
+.button-box {
+  margin: 30px 0px;
+}
+
+.button-box a {
+  width: 70%;
+  padding: 15px 20px;
+  margin: 0px auto;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+#button1 {
+  display: block;
+  color: #fff;
+  font-weight: 700;
+  background-color: hsl(245, 75%, 52%);
+  border-style: none;
+  border-radius: 10px;
+  box-shadow: 0 12px 20px 4px hsla(245, 75%, 52%, 0.2);
+}
+
+#button1:hover {
+  background-color: rgb(114, 112, 233);
+  cursor: pointer;
+}
+
+#button2 {
+  display: block;
+  color: hsl(224, 23%, 55%);
+  font-weight: 700;
+  border-style: none;
+}
+
+#button2:hover {
+  color: hsl(223, 47%, 23%);
+  cursor: pointer;
+}
+
+#change-link {
+  color: hsl(245, 75%, 52%);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+#change-link:hover {
+  color: rgb(114, 112, 233);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.plan-box h4 {
+  margin-bottom: -7px;
+}
+
+.plan-text {
+  flex: 1;
+  margin: 0 20px;
+  text-align: left;
+}
