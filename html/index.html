@@ -13,7 +13,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style type="text/css">
       body {
-        padding: 24px;
+        max-width: 700px;
+        margin: 50px auto;
       }
       button {
         margin-top: 24px;
@@ -26,55 +27,47 @@
   </head>
 
   <body>
-    <h1>
-      jquery(ajax) + bootstrap + openAPI를 이용하여 정보 제공 웹 서비스 작성하기
-    </h1>
+    <h2>jquery(ajax) + bootstrap + openAPI를</h2>
+    <h2>이용하여 정보 제공 웹 서비스 작성하기</h2>
     <hr />
-    <div class="question-box">
-      <h2>서울시 따릉이 OpenAPI 사용하기</h2>
-      <button type="button" class="btn btn-success" onclick="q1()">
-        업데이트
-      </button>
-      <table class="table table-striped table-hover">
-        <thead>
-          <tr>
-            <td>거치대 위치</td>
-            <td>거치대 수</td>
-            <td>현재 거치된 따릉이 수</td>
-          </tr>
-        </thead>
-        <tbody id="names-q1"></tbody>
-      </table>
-    </div>
+    <h3>서울시 나눔카 거점리스트 정보</h3>
+    <button type="button" class="btn btn-success" onclick="q1()">
+      업데이트
+    </button>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <td>주소</td>
+          <td>거점명</td>
+          <td>위도</td>
+          <td>경도</td>
+        </tr>
+      </thead>
+      <tbody id="names-q1"></tbody>
+    </table>
     <script>
       function q1() {
         $.ajax({
           type: "GET",
-          url: "http://spartacodingclub.shop/sparta_api/seoulbike",
-          data: {},
+          url: "http://openapi.seoul.go.kr:8088/646c4173626a6f7936394856435279/xml/NanumcarSpotList/1/500/",
+          dataType: "xml",
           success: function (response) {
+            let data = $(response);
+            let la, lo, adres, name;
             $("#names-q1").empty();
-            let bike_list = response["getStationList"]["row"];
-            for (let i = 0; i < bike_list.length; i++) {
-              let name_stat = bike_list[i]["stationName"];
-              let rack_cnt = bike_list[i]["rackTotCnt"];
-              let park_bike = bike_list[i]["parkingBikeTotCnt"];
-              let tr_bike = ``;
-              if (park_bike < 3) {
-                tr_bike = `<tr class="tr_color">
-                                <td>${name_stat}</td>
-                                <td>${rack_cnt}</td>
-                                <td>${park_bike}</td>
+            $("row", data).each(function () {
+              la = $("LA", this).text();
+              lo = $("LO", this).text();
+              adres = $("ADRES", this).text();
+              name = $("POSITN_NM", this).text();
+              let tr_car_spot = `<tr>
+                                <td>${adres}</td>
+                                <td>${name}</td>
+                                <td>${la}</td>
+                                <td>${lo}</td>
                                 </tr>`;
-              } else {
-                tr_bike = `<tr>
-                            <td>${name_stat}</td>
-                            <td>${rack_cnt}</td>
-                            <td>${park_bike}</td>
-                            </tr>`;
-              }
-              $("#names-q1").append(tr_bike);
-            }
+              $("#names-q1").append(tr_car_spot);
+            });
           },
         });
       }
